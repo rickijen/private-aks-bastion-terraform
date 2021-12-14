@@ -43,7 +43,7 @@ module "azure-bastion" {
   virtual_network_name = data.terraform_remote_state.aks.outputs.hub_vnet_name
 
   # Azure bastion server requireemnts
-  azure_bastion_service_name          = "${random_pet.prefix.id}-bastion"
+  azure_bastion_service_name          = "${data.terraform_remote_state.aks.outputs.hub_vnet_name}-bastion"
   azure_bastion_subnet_address_prefix = ["10.10.2.0/26"]
 
   # Adding TAG's to your Azure resources (Required)
